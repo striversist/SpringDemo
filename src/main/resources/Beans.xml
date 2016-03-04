@@ -16,4 +16,11 @@
         <property name="message3" value="Hello China 3" />
     </bean>
 
+    <bean id="text_editor" class="demo.di.TextEditor">
+        <constructor-arg ref="spell_checker" />
+    </bean>
+    
+    <bean id="spell_checker" class="demo.di.SpellChecker">
+    </bean>
+
 </beans>
