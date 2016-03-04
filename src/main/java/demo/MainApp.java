@@ -3,6 +3,7 @@ package demo;
 import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import demo.di.JavaCollection;
 import demo.di.TextEditor;
 import demo.di.TextEditor2;
 
@@ -25,6 +26,12 @@ public class MainApp {
         
         TextEditor2 textEditor2 = (TextEditor2) context.getBean("text_editor2");
         textEditor2.checkSpelling();
+        
+        JavaCollection jc = (JavaCollection) context.getBean("java_collection");
+        jc.getAddressList();
+        jc.getAddressSet();
+        jc.getAddressMap();
+        jc.getAddressProp();
         
         context.registerShutdownHook();
     }
