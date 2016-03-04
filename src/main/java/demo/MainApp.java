@@ -6,6 +6,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import demo.di.JavaCollection;
 import demo.di.TextEditor;
 import demo.di.TextEditor2;
+import demo.di.TextEditor3;
 
 public class MainApp {
 
@@ -26,6 +27,9 @@ public class MainApp {
         
         TextEditor2 textEditor2 = (TextEditor2) context.getBean("text_editor2");
         textEditor2.checkSpelling();
+        
+        TextEditor3 textEditor3 = (TextEditor3) context.getBean("text_editor3");
+        textEditor3.checkSpelling();
         
         JavaCollection jc = (JavaCollection) context.getBean("java_collection");
         jc.getAddressList();

@@ -23,8 +23,15 @@
     <bean id="text_editor2" class="demo.di.TextEditor2">
         <property name="spellChecker" ref="spell_checker" />
     </bean>
-
+    
     <bean id="spell_checker" class="demo.di.SpellChecker">
+    </bean>
+    
+    <bean id="text_editor3" class="demo.di.TextEditor3" autowire="byName">
+        <property name="name" value="Generic Text Editor" />
+    </bean>
+
+    <bean id="spellChecker" class="demo.di.SpellChecker">
     </bean>
 
     <bean id="java_collection" class="demo.di.JavaCollection">
