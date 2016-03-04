@@ -4,10 +4,16 @@
     xsi:schemaLocation="http://www.springframework.org/schema/beans
     http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
 
-    <bean id="helloWorld" class="demo.HelloWorld" 
+    <bean id="hello_world" class="demo.HelloWorld" 
         init-method="init" destroy-method="destroy">
-        <property name="message" value="Hello World!" />
+        <property name="message1" value="Hello World!" />
+        <property name="message2" value="Hello Second World!" />
     </bean>
     <bean class="demo.InitHelloWorld" />
+    
+    <bean id="hello_china" class="demo.HelloChina" parent="hello_world">
+        <property name="message1" value="Hello China!" />
+        <property name="message3" value="Hello China 3" />
+    </bean>
 
 </beans>
