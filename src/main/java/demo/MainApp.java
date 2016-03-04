@@ -3,6 +3,7 @@ package demo;
 import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import demo.annotations.Student;
 import demo.di.JavaCollection;
 import demo.di.TextEditor;
 import demo.di.TextEditor2;
@@ -36,6 +37,10 @@ public class MainApp {
         jc.getAddressSet();
         jc.getAddressMap();
         jc.getAddressProp();
+        
+        Student student = (Student) context.getBean("student");
+        System.out.println("Student name: " + student.getName());
+        System.out.println("Student age: " + student.getAge());
         
         context.registerShutdownHook();
     }
