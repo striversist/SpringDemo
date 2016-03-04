@@ -20,6 +20,10 @@
         <constructor-arg ref="spell_checker" />
     </bean>
     
+    <bean id="text_editor2" class="demo.di.TextEditor2">
+        <property name="spellChecker" ref="spell_checker" />
+    </bean>
+    
     <bean id="spell_checker" class="demo.di.SpellChecker">
     </bean>
 

@@ -4,6 +4,7 @@ import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import demo.di.TextEditor;
+import demo.di.TextEditor2;
 
 public class MainApp {
 
@@ -21,6 +22,9 @@ public class MainApp {
 
         TextEditor textEditor = (TextEditor) context.getBean("text_editor");
         textEditor.checkSpelling();
+        
+        TextEditor2 textEditor2 = (TextEditor2) context.getBean("text_editor2");
+        textEditor2.checkSpelling();
         
         context.registerShutdownHook();
     }
