@@ -38,6 +38,10 @@
 
     <bean id="spellChecker" class="demo.di.SpellChecker">
     </bean>
+    
+    <bean id="text_editor4" class="demo.annotations.TextEditor4">
+        <property name="name" value="Generic Text Editor: TextEditor4" />
+    </bean>
 
     <bean id="java_collection" class="demo.di.JavaCollection">
         <!-- results in a setAddressList(java.util.List) call -->
