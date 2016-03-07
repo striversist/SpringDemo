@@ -9,8 +9,8 @@
     
     <context:annotation-config/>
     
-    <bean id="cStartEventHandler" class="demo.CStartEventHandler"/>
-    <bean id="cStopEventHandler" class="demo.CStopEventHandler"/>
+    <bean id="cStartEventHandler" class="demo.event.CStartEventHandler"/>
+    <bean id="cStopEventHandler" class="demo.event.CStopEventHandler"/>
 
     <bean id="hello_world" class="demo.HelloWorld" init-method="init"
         destroy-method="destroy">
