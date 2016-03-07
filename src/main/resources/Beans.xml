@@ -11,6 +11,8 @@
     
     <bean id="cStartEventHandler" class="demo.event.CStartEventHandler"/>
     <bean id="cStopEventHandler" class="demo.event.CStopEventHandler"/>
+    <bean id="customEventHandler" class="demo.event.CustomEventHandler" />
+    <bean id="customEventPublisher" class="demo.event.CustomEventPublisher" />
 
     <bean id="hello_world" class="demo.HelloWorld" init-method="init"
         destroy-method="destroy">

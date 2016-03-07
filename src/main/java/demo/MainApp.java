@@ -11,6 +11,7 @@ import demo.di.JavaCollection;
 import demo.di.TextEditor;
 import demo.di.TextEditor2;
 import demo.di.TextEditor3;
+import demo.event.CustomEventPublisher;
 
 public class MainApp {
 
@@ -55,6 +56,10 @@ public class MainApp {
         Student student = (Student) context.getBean("student");
         System.out.println("Student name: " + student.getName());
         System.out.println("Student age: " + student.getAge());
+        
+        CustomEventPublisher publisher = (CustomEventPublisher) context.getBean("customEventPublisher");
+        publisher.publish();
+        publisher.publish();
         
         context.stop();
         context.registerShutdownHook();
