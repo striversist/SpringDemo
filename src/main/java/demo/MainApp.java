@@ -16,6 +16,7 @@ public class MainApp {
 
     public static void main(String[] args) {
         AbstractApplicationContext context = new ClassPathXmlApplicationContext("Beans.xml");
+        context.start();
         
         HelloWorld obj1 = (HelloWorld) context.getBean("hello_world");
         obj1.getMessage1();
@@ -55,6 +56,7 @@ public class MainApp {
         System.out.println("Student name: " + student.getName());
         System.out.println("Student age: " + student.getAge());
         
+        context.stop();
         context.registerShutdownHook();
     }
 }

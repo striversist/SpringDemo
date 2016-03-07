@@ -8,6 +8,9 @@
     http://www.springframework.org/schema/context/spring-context-3.0.xsd">
     
     <context:annotation-config/>
+    
+    <bean id="cStartEventHandler" class="demo.CStartEventHandler"/>
+    <bean id="cStopEventHandler" class="demo.CStopEventHandler"/>
 
     <bean id="hello_world" class="demo.HelloWorld" init-method="init"
         destroy-method="destroy">
@@ -89,5 +92,5 @@
         <property name="name" value="Zara" />
         <property name="age" value="17" />
     </bean>
-
+    
 </beans>
