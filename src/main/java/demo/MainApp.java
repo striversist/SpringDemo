@@ -1,8 +1,10 @@
 package demo;
 
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import demo.annotations.HelloWorldConfig;
 import demo.annotations.Student;
 import demo.annotations.TextEditor4;
 import demo.di.JavaCollection;
@@ -23,6 +25,13 @@ public class MainApp {
         obj2.getMessage1();
         obj2.getMessage2();
         obj2.getMessage3();
+
+        AnnotationConfigApplicationContext context2 = new AnnotationConfigApplicationContext();
+        context2.register(HelloWorldConfig.class);
+        context2.refresh();
+        HelloWorld obj3 = (HelloWorld) context2.getBean(HelloWorld.class);
+        obj3.setMessage1("from annoatation config");
+        obj3.getMessage1();
 
         TextEditor textEditor = (TextEditor) context.getBean("text_editor");
         textEditor.checkSpelling();
