@@ -15,26 +15,55 @@ import demo.event.CustomEventPublisher;
 
 public class MainApp {
 
+    public static AbstractApplicationContext context = null;
+    
     public static void main(String[] args) {
-        AbstractApplicationContext context = new ClassPathXmlApplicationContext("Beans.xml");
+        context = new ClassPathXmlApplicationContext("Beans.xml");
         context.start();
         
+        MainApp app = new MainApp();
+        app.testHelloWorld();
+        app.testHelloChina();
+        app.testAnnotation();
+        app.testAnnotationConfig();
+        app.testTextEditor();
+        app.testJavaCollection();
+        app.testCustomEvent();
+        
+        context.stop();
+        context.registerShutdownHook();
+    }
+    
+    public void testHelloWorld() {
         HelloWorld obj1 = (HelloWorld) context.getBean("hello_world");
         obj1.getMessage1();
         obj1.getMessage2();
-        
+    }
+    
+    public void testHelloChina() {
         HelloChina obj2 = (HelloChina) context.getBean("hello_china");
         obj2.getMessage1();
         obj2.getMessage2();
         obj2.getMessage3();
-
+    }
+    
+    public void testAnnotation() {
+        Student student = (Student) context.getBean("student");
+        System.out.println("Student name: " + student.getName());
+        System.out.println("Student age: " + student.getAge());
+    }
+    
+    public void testAnnotationConfig() {
         AnnotationConfigApplicationContext context2 = new AnnotationConfigApplicationContext();
         context2.register(HelloWorldConfig.class);
         context2.refresh();
         HelloWorld obj3 = (HelloWorld) context2.getBean(HelloWorld.class);
         obj3.setMessage1("from annoatation config");
         obj3.getMessage1();
-
+        context2.close();
+    }
+    
+    public void testTextEditor() {
         TextEditor textEditor = (TextEditor) context.getBean("text_editor");
         textEditor.checkSpelling();
         
@@ -46,22 +75,19 @@ public class MainApp {
         
         TextEditor4 textEditor4 = (TextEditor4) context.getBean("text_editor4");
         textEditor4.checkSpelling();
-        
+    }
+    
+    public void testJavaCollection() {
         JavaCollection jc = (JavaCollection) context.getBean("java_collection");
         jc.getAddressList();
         jc.getAddressSet();
         jc.getAddressMap();
         jc.getAddressProp();
-        
-        Student student = (Student) context.getBean("student");
-        System.out.println("Student name: " + student.getName());
-        System.out.println("Student age: " + student.getAge());
-        
+    }
+    
+    public void testCustomEvent() {
         CustomEventPublisher publisher = (CustomEventPublisher) context.getBean("customEventPublisher");
         publisher.publish();
         publisher.publish();
-        
-        context.stop();
-        context.registerShutdownHook();
     }
 }
